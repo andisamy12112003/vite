@@ -1,6 +1,5 @@
 import { useContext } from "react"
-import { AppContext } from "./Context"
-
+import { AppContext } from "./AppContext"
 function ItemsTodo(props) {
     const {filterTodo} = props
     const {modeChange} = useContext(AppContext)

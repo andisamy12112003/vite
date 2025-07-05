@@ -1,34 +1,45 @@
 import {useContext, useEffect, useState } from 'react'
 import Header from './Header'
+import {v4 as uuid4} from "uuid" 
 import ItemsTodo from './ItemsTodo'
 import {format} from "date-fns"
 import { BiSearch } from 'react-icons/bi'
-import { AppContext } from './Context'
-
+import { AppContext } from './AppContext'
 const categoryArr = [
     {
+        id:uuid4(),
         value:"personal"
     },
     {
-    value:"family"
+        id:uuid4(),
+        value:"family"
     },
     {
-    value:"friends"
+        id:uuid4(),
+        value:"friends"
     },
     {
-       value:"sports"
-    },
-    {        value:"education"
-    },
-    {
-    value:"cooking"
+        id:uuid4(),
+        value:"sports"
     },
     {
-            value:"bills"
+        id:uuid4(),
+        value:"education"
     },
     {
-    value:"birth day"
-    },{
+        id:uuid4(),
+        value:"cooking"
+    },
+    {
+        id:uuid4(),
+        value:"bills"
+    },
+    {
+        id:uuid4(),
+        value:"birth day"
+    },
+    {
+        id:uuid4(),
         value:"other"
     },
     
@@ -52,7 +63,7 @@ function Home() {
     {/*avoid update the state variable in the useState method beacase the use state return the current state values during add the object in the array so the first object before onClick event*/}
     {/*the altenative methoad is assign a variable and set the object data and pass the data to the useState update array function*/}
     let addtodoData = {
-        category,title,description,startDate,endDate,todayDate
+        id:uuid4(),category,title,description,startDate,endDate,todayDate
     }
     useEffect(()=>{
         const updateSearchItems = todoList.filter(items=>items.category.includes(searchInput))
@@ -85,7 +96,8 @@ function Home() {
             setErrorStartDate(false)
         }
         if(title!==null && endDate!==null && description!==null && startDate!==null){
-            setTodoList(prev=>([...prev,addtodoData]))            
+            setTodoList(prev=>([...prev,addtodoData]))
+            
         }
     }
   
@@ -118,7 +130,7 @@ function Home() {
                              max-lg:flex max-lg:flex-col bg-[#e1d5c1] ${modeChange?null:"bg-gray-700"}`}>
                                 
                                 {categoryArr.map(item=>(
-                                    <option className="" value={item.value} >{item.value}</option>
+                                    <option className="" value={item.value} key={item.id}>{item.value}</option>
                                 ))}
                             </select>
                         </div>

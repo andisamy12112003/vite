@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import myphoto from "../assets/myphoto.jpg"
 import { BsMoonFill, BsSunFill } from "react-icons/bs"
-import { AppContext } from "./Context"
+import { AppContext } from "./AppContext"
 
 function Header() {
     const {modeChange,setModeChange} = useContext(AppContext)
