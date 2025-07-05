@@ -1,45 +1,34 @@
 import {useContext, useEffect, useState } from 'react'
 import Header from './Header'
-import {v4 as uuid4} from "uuid" 
 import ItemsTodo from './ItemsTodo'
 import {format} from "date-fns"
 import { BiSearch } from 'react-icons/bi'
 import { AppContext } from './Context'
+
 const categoryArr = [
     {
-        id:uuid4(),
         value:"personal"
     },
     {
-        id:uuid4(),
-        value:"family"
+    value:"family"
     },
     {
-        id:uuid4(),
-        value:"friends"
+    value:"friends"
     },
     {
-        id:uuid4(),
-        value:"sports"
+       value:"sports"
+    },
+    {        value:"education"
     },
     {
-        id:uuid4(),
-        value:"education"
+    value:"cooking"
     },
     {
-        id:uuid4(),
-        value:"cooking"
+            value:"bills"
     },
     {
-        id:uuid4(),
-        value:"bills"
-    },
-    {
-        id:uuid4(),
-        value:"birth day"
-    },
-    {
-        id:uuid4(),
+    value:"birth day"
+    },{
         value:"other"
     },
     
@@ -63,7 +52,7 @@ function Home() {
     {/*avoid update the state variable in the useState method beacase the use state return the current state values during add the object in the array so the first object before onClick event*/}
     {/*the altenative methoad is assign a variable and set the object data and pass the data to the useState update array function*/}
     let addtodoData = {
-        id:uuid4(),category,title,description,startDate,endDate,todayDate
+        category,title,description,startDate,endDate,todayDate
     }
     useEffect(()=>{
         const updateSearchItems = todoList.filter(items=>items.category.includes(searchInput))
@@ -96,8 +85,7 @@ function Home() {
             setErrorStartDate(false)
         }
         if(title!==null && endDate!==null && description!==null && startDate!==null){
-            setTodoList(prev=>([...prev,addtodoData]))
-            
+            setTodoList(prev=>([...prev,addtodoData]))            
         }
     }
   
