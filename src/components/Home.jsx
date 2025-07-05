@@ -1,7 +1,6 @@
 import {useContext, useEffect, useState } from 'react'
 import Header from './Header'
 import ItemsTodo from './ItemsTodo'
-import {format} from "date-fns"
 import { BiSearch } from 'react-icons/bi'
 import { AppContext } from './AppContext'
 const categoryArr = [
@@ -48,7 +47,6 @@ function Home() {
     const [description,setDescription] = useState(null)
     const [startDate,setStartDate] = useState(null)
     const [endDate,setEndDate] = useState(null)
-    const todayDate = format(new Date(),"dd-MM-yyyy")
     const [errorTitle,setErrorTitle] = useState(false)
     const [errorStartDate,setErrorStartDate] = useState(false)
     const [errorEndDate,setErrorEndDate] = useState(false)
@@ -60,7 +58,7 @@ function Home() {
     {/*avoid update the state variable in the useState method beacase the use state return the current state values during add the object in the array so the first object before onClick event*/}
     {/*the altenative methoad is assign a variable and set the object data and pass the data to the useState update array function*/}
     let addtodoData = {
-        category,title,description,startDate,endDate,todayDate
+        category,title,description,startDate,endDate
     }
     useEffect(()=>{
         const updateSearchItems = todoList.filter(items=>items.category.includes(searchInput))

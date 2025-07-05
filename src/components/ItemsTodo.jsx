@@ -19,7 +19,6 @@ function ItemsTodo(props) {
                     </div>  
                         <div className="flex justify-between flex-wrap">
                             <h1 className="m-2 font-bold">{items.title}</h1>
-                            <h1 className="m-2">{items.todayDate}</h1>
                         </div>
                         <p className="ml-4 mt-2">{items.description}
                         </p>
