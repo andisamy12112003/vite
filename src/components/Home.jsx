@@ -1,45 +1,49 @@
 import {useContext, useEffect, useState } from 'react'
 import Header from './Header'
 import ItemsTodo from './ItemsTodo'
+import {format} from "date-fns"
 import { BiSearch } from 'react-icons/bi'
 import { AppContext } from './AppContext'
 const categoryArr = [
     {
-        
+        id:crypto.randomUUID(),
         value:"personal"
     },
     {
-        
+        id:crypto.randomUUID(),
         value:"family"
     },
     {
-    
+        id:crypto.randomUUID(),
         value:"friends"
     },
     {
-        
+        id:crypto.randomUUID(),
         value:"sports"
     },
     {
-    
+        id:crypto.randomUUID(),
         value:"education"
     },
     {
+        id:crypto.randomUUID(),
         value:"cooking"
     },
     {
-
+        id:crypto.randomUUID(),
         value:"bills"
     },
     {
-
+        id:crypto.randomUUID(),
         value:"birth day"
     },
     {
+        id:crypto.randomUUID(),
         value:"other"
     },
     
 ]
+console.log(categoryArr)
 
 function Home() {
     const [category,setCategory] = useState("personal")
@@ -47,6 +51,7 @@ function Home() {
     const [description,setDescription] = useState(null)
     const [startDate,setStartDate] = useState(null)
     const [endDate,setEndDate] = useState(null)
+    const todayDate = format(new Date(),"dd-MM-yyyy")
     const [errorTitle,setErrorTitle] = useState(false)
     const [errorStartDate,setErrorStartDate] = useState(false)
     const [errorEndDate,setErrorEndDate] = useState(false)
@@ -55,10 +60,12 @@ function Home() {
     const {modeChange} = useContext(AppContext)
     const [todoList,setTodoList] = useState([])
     const [filterTodo,setFilterTodo] = useState(todoList)
+
     {/*avoid update the state variable in the useState method beacase the use state return the current state values during add the object in the array so the first object before onClick event*/}
     {/*the altenative methoad is assign a variable and set the object data and pass the data to the useState update array function*/}
+
     let addtodoData = {
-        category,title,description,startDate,endDate
+        id:crypto.randomUUID(),category,title,description,startDate,endDate,todayDate
     }
     useEffect(()=>{
         const updateSearchItems = todoList.filter(items=>items.category.includes(searchInput))
