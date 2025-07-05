@@ -1,6 +1,5 @@
 import {useContext, useEffect, useState } from 'react'
 import Header from './Header'
-import {v4 as uuid4} from "uuid" 
 import ItemsTodo from './ItemsTodo'
 import {format} from "date-fns"
 import { BiSearch } from 'react-icons/bi'
@@ -61,7 +60,7 @@ function Home() {
     {/*avoid update the state variable in the useState method beacase the use state return the current state values during add the object in the array so the first object before onClick event*/}
     {/*the altenative methoad is assign a variable and set the object data and pass the data to the useState update array function*/}
     let addtodoData = {
-        id:uuid4(),category,title,description,startDate,endDate,todayDate
+        category,title,description,startDate,endDate,todayDate
     }
     useEffect(()=>{
         const updateSearchItems = todoList.filter(items=>items.category.includes(searchInput))
