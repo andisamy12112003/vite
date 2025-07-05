@@ -1,7 +1,5 @@
-import { createContext } from "react";
 import { useState } from "react";
-export const AppContext = createContext()
-
+import { AppContext } from "./AppContext";
 const ContextProvider = (props) => {
 
     const [modeChange,setModeChange] = useState(true)

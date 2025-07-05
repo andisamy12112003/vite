@@ -118,7 +118,7 @@ function Home() {
                              max-lg:flex max-lg:flex-col bg-[#e1d5c1] ${modeChange?null:"bg-gray-700"}`}>
                                 
                                 {categoryArr.map(item=>(
-                                    <option className="" value={item.value} key={item.id}>{item.value}</option>
+                                    <option className="" value={item.value} >{item.value}</option>
                                 ))}
                             </select>
                         </div>
