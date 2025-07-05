@@ -7,39 +7,37 @@ import { BiSearch } from 'react-icons/bi'
 import { AppContext } from './AppContext'
 const categoryArr = [
     {
-        id:uuid4(),
+        
         value:"personal"
     },
     {
-        id:uuid4(),
+        
         value:"family"
     },
     {
-        id:uuid4(),
+    
         value:"friends"
     },
     {
-        id:uuid4(),
+        
         value:"sports"
     },
     {
-        id:uuid4(),
+    
         value:"education"
     },
     {
-        id:uuid4(),
         value:"cooking"
     },
     {
-        id:uuid4(),
+
         value:"bills"
     },
     {
-        id:uuid4(),
+
         value:"birth day"
     },
     {
-        id:uuid4(),
         value:"other"
     },
     
